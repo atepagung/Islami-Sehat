@@ -11,6 +11,7 @@
           <th>Asal Pesantren</th>
           <th>Berat</th>
           <th>Riwayat Penyakit</th>
+          <th>Option</th>
         </tr>
       </thead>
       <tfoot>
@@ -23,6 +24,7 @@
           <th>Asal Pesantren</th>
           <th>Berat</th>
           <th>Riwayat Penyakit</th>
+          <th>Option</th>
         </tr>
       </tfoot>
       <tbody>
@@ -42,6 +44,11 @@
             <td>{{ $archive['asal_pesantren'] }}</td>
             <td>{{ $archive['berat'] }}</td>
             <td>{{ $archive['riwayat_penyakit'] }}</td>
+            <td>
+              <div class="col">
+                  <a class="btn btn-danger btn-sm" title="Delete" onclick="open_delete_modal({{ $archive['id'] }})" style="width: 70px"><i class="fa fa-remove"></i> delete</a>
+              </div>
+            </td>
           </tr>  
         @endforeach
       </tbody>

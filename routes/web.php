@@ -50,6 +50,7 @@ Route::post('/qa-dokter/answer/{id}', 'QAController@answer_qa_dokter')->middlewa
 
 
 Route::get('/users', 'UserController@show')->name('users')->middleware('CheckAuth');
+Route::delete('/users/delete', 'UserController@delete')->middleware('CheckAuth');
 
 Route::get('/logout', 'AuthController@logout')->name('logout')->middleware('CheckAuth');
 

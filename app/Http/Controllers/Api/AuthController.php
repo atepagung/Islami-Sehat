@@ -66,7 +66,7 @@ class AuthController extends Controller
 
 			$output = $this->addMessageFailed('Username sudah terdaftar');
 
-			return response()->json($output, 400);
+			return response()->json($output, 200);
 		}
 
 		$user = User::where('id', $user->id)->first(['id', 'username', 'fullname', 'usia', 'jk', 'asal_pesantren', 'berat', 'riwayat_penyakit']);

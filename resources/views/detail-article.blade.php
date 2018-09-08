@@ -31,7 +31,15 @@
 
             <div class="col-md-6">
                 
-                {{ $article->category }}
+                @if($article->category == 'A')
+                    <p>Kesehatan dan Gigi</p>
+                @elseif($article->category == 'B')
+                    <p>Kesehatan Lingkungan</p>
+                @elseif($article->category == 'C')
+                    <p>Gaya Hidup</p>
+                @else
+                    <p>Kesehatan Masyarakat</p>
+                @endif
                 
             </div>
         </div>
@@ -42,14 +50,14 @@
             <div class="col-md-6">
                 
                 <br>
-                <img id="output_image" width="70px" src="{{ asset('storage/'.$article->picture) }}" />
+                <img id="output_image" width="70px" src="{{ url('').'/storage/app/public/'.$article->picture }}" />
 
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">
-                <a href="{{ url('articles/edit/'.$article->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ url('article/edit/'.$article->id) }}" class="btn btn-warning">Edit</a>
                 <a href="#" class="btn btn-danger" onclick="open_delete_modal({{ $article->id }})">Hapus</a>
             </div>
         </div>
@@ -88,7 +96,7 @@
 <script>
     function open_delete_modal(id) {
         $("#myModal").modal();
-        $("#form2-delete").attr("action", "{{ url('articles/') }}" + "/" + id);
+        $("#form2-delete").attr("action", "{{ url('article/') }}" + "/" + id);
     }
 </script>
 

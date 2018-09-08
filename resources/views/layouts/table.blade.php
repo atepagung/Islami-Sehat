@@ -22,14 +22,15 @@
           <tr>
             <td>{{ $archive['title'] }}</td>
             <td>{{ $archive['created_at'] }}</td>
-            <td>{!! $archive['content'] !!}</td>
+            <!-- <td>{!! $archive['content'] !!}</td> -->
+            <td>{!! substr(strip_tags($archive['content']), 0, 250) !!} <strong>. . . . .</strong></td>
             <td>
                 <div class="row">
                     <div class="col">
-                        <a href="{{ url('articles').'/'.$archive['id'] }}" class="btn btn-primary btn-sm" target="_blank" title="Detail" style="width: 70px"><i class="fa fa-external-link"></i> detail</a>
+                        <a href="{{ url('article').'/'.$archive['id'] }}" class="btn btn-primary btn-sm" target="_blank" title="Detail" style="width: 70px"><i class="fa fa-external-link"></i> detail</a>
                     </div>
                     <div class="col">
-                        <a href="{{ url('articles/edit').'/'.$archive['id'] }}" class="btn btn-warning btn-sm" title="Edit" style="width: 70px"><i class="fa fa-edit"></i> edit</a>
+                        <a href="{{ url('article/edit').'/'.$archive['id'] }}" class="btn btn-warning btn-sm" title="Edit" style="width: 70px"><i class="fa fa-edit"></i> edit</a>
                     </div>
                     <div class="col">
                         <a class="btn btn-danger btn-sm" title="Delete" onclick="open_delete_modal({{ $archive['id'] }})" style="width: 70px"><i class="fa fa-remove"></i> delete</a>

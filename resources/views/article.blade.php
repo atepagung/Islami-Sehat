@@ -58,7 +58,7 @@
 <script>
 	function open_delete_modal(id) {
         $("#myModal").modal();
-        $("#form2-delete").attr("action", "{{ url('articles/') }}" + "/" + id);
+        $("#form2-delete").attr("action", "{{ url('article/') }}" + "/" + id);
     }
 </script>
 

@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <form class="form-horizontal" method="POST" action="{{ url('articles/edit/'.$article->id) }}" enctype="multipart/form-data">
+    <form class="form-horizontal" method="POST" action="{{ url('article/edit/'.$article->id) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -31,19 +31,26 @@
                 <!-- <textarea id="ket_surat_keluar" class="form-control" name="ket_surat_keluar" required></textarea> -->
                 <div class="input-group mb-3">
                   <select class="custom-select" id="inputGroupSelect01" name="category">
-                    @if($article->category == 'Category 1')
-                        
-                        <option value="Category 1" selected>Category 1</option>
-                        <option value="Category 2">Category 2</option>
-                        <option value="Category 3">Category 3</option>
-                    @elseif($article->category == 'Category 2')
-                        <option value="Category 1">Category 1</option>
-                        <option value="Category 2" selected>Category 2</option>
-                        <option value="Category 3">Category 3</option>
+                    @if($article->category == 'A')
+                        <option value="A" selected>Kesehatan dan Gizi</option>
+                        <option value="B">Kesehatan Lingkungan</option>
+                        <option value="C">Gaya Hidup</option>
+                        <option value="D">Kesehatan Masyarakat</option>
+                    @elseif($article->category == 'B')
+                        <option value="A">Kesehatan dan Gizi</option>
+                        <option value="B" selected>Kesehatan Lingkungan</option>
+                        <option value="C">Gaya Hidup</option>
+                        <option value="D">Kesehatan Masyarakat</option>
+                    @elseif($article->category == 'C')
+                        <option value="A">Kesehatan dan Gizi</option>
+                        <option value="B">Kesehatan Lingkungan</option>
+                        <option value="C" selected>Gaya Hidup</option>
+                        <option value="D">Kesehatan Masyarakat</option>
                     @else
-                        <option value="Category 1">Category 1</option>
-                        <option value="Category 2">Category 2</option>
-                        <option value="Category 3" selected>Category 3</option>
+                        <option value="A">Kesehatan dan Gizi</option>
+                        <option value="B">Kesehatan Lingkungan</option>
+                        <option value="C">Gaya Hidup</option>
+                        <option value="D" selected>Kesehatan Masyarakat</option>
                     @endif
                   </select>
                 </div>
@@ -62,7 +69,7 @@
             <div class="col-md-6">
                 <input type="file" name="image" onchange="preview_image(event)">
                 <br>
-                <img src="{{ asset('storage/'.$article->picture) }}" id="output_image" width="70px"/>
+                <img src="{{ url('').'/storage/app/public/'.$article->picture }}" id="output_image" width="70px"/>
 
                 @if ($errors->has('archive'))
                     <span class="help-block">

@@ -29,13 +29,13 @@ Route::get('/articles/4', 'ArticleController@show_4')->name('articles4')->middle
 Route::get('/articles/add', 'ArticleController@add')->name('add-article')->middleware('CheckAuth');
 Route::post('/articles', 'ArticleController@store')->name('store-article')->middleware('CheckAuth');
 
-Route::get('/articles/{id}', 'ArticleController@detail')->middleware('CheckAuth');
+Route::get('/article/{id}', 'ArticleController@detail')->middleware('CheckAuth');
 
-Route::get('/articles/edit/{id}', 'ArticleController@edit')->middleware('CheckAuth');
+Route::get('/article/edit/{id}', 'ArticleController@edit')->middleware('CheckAuth');
 
-Route::post('/articles/edit/{id}', 'ArticleController@update')->middleware('CheckAuth');
+Route::post('/article/edit/{id}', 'ArticleController@update')->middleware('CheckAuth');
 
-Route::delete('/articles/{id}', 'ArticleController@delete')->middleware('CheckAuth');
+Route::delete('/article/{id}', 'ArticleController@delete')->middleware('CheckAuth');
 
 
 Route::get('/qa-ustadz', 'QAController@show_qa_ustadz')->name('qa-ustadz')->middleware('CheckAuth');

@@ -94,16 +94,19 @@ class ArticleController extends Controller
     	return view('edit-article', ['article' => $article]);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-    	try {
-    		DB::beginTransaction();
+       
+        try {
+            DB::beginTransaction();
 
-    		$path = $request->image->storeAs('', time().'.'.$request->image->getClientOriginalExtension(), 'public');
+    		$article = Article::find($id);
 
-    		$article = Artikel::find($id);
+            if ($request->image != NULL) {
+                $path = $request->image->storeAs('', time().'.'.$request->image->getClientOriginalExtension(), 'public');
+        		$article->picture = $path;
+            }
 
-    		$article->picture = $path;
     		$article->title = $request->title;
     		$article->content = $request->content;
     		$article->category = $request->category;

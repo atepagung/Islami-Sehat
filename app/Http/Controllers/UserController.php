@@ -35,7 +35,7 @@ class UserController extends Controller
     		return redirect()->route('users');
     	}
 
-    	session()->flash('success_message', 'Berhasil Mengubah Artikel');
+    	session()->flash('success_message', 'Berhasil Menghapus User');
 		return redirect()->route('users');
     }
 }
